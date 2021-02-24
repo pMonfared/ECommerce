@@ -1,5 +1,4 @@
-﻿{
-  "$schema": "http://json.schemastore.org/launchsettings.json",
+{
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
@@ -8,23 +7,36 @@
       "sslPort": 0
     }
   },
+  "$schema": "http://json.schemastore.org/launchsettings.json",
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
       "launchUrl": "api/v1/search?customerid=1",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "InternalProductsServiceAddress": "http://localhost:6001",
+        "InternalOrdersServiceAddress": "http://localhost:6002",
+        "InternalCustomersServiceAddress": "http://localhost:6003"
       }
     },
     "ECommerce.Api.Search": {
       "commandName": "Project",
-      "launchBrowser": false,
       "launchUrl": "api/v1/search?customerid=1",
-      "applicationUrl": "http://localhost:3007",
+      "launchBrowser": false,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "InternalProductsServiceAddress": "http://localhost:6001",
+        "InternalOrdersServiceAddress": "http://localhost:6003",
+        "InternalCustomersServiceAddress": "http://localhost:6002"
+      },
+      "applicationUrl": "http://localhost:6007"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/api/v1/search?customerid=1",
+      "publishAllPorts": true
     }
   }
 }

@@ -39,3 +39,4 @@ msbuild.wrn
 .idea/
 LcXc.Admin.Api/Properties/launchSettings.json
 LcXc.Admin.Api/logs/
+src/ECommerce.Api.Products/charts/
