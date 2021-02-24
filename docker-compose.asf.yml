@@ -1,0 +1,36 @@
+version: '3.4'
+
+services:
+  customers:
+    image: pomodev/ecommerceapicustomers:latest
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80/http"
+
+  orders:
+    image: pomodev/ecommerceapiorders:latest
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80/http"
+
+
+  products:
+    image: pomodev/ecommerceapiproducts:latest
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80/http"
+
+
+  search:
+    image: pomodev/ecommerceapisearch:latest
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - InternalProductsServiceAddress=http://10.0.0.4:19081/lil/products/
+      - InternalOrdersServiceAddress=http://10.0.0.4:19081/lil/orders/
+      - InternalCustomersServiceAddress=http://10.0.0.4:19081/lil/customers/
+    ports:
+      - "6007:80"
+
